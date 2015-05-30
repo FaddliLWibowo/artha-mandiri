@@ -1,0 +1,17 @@
+// SET `noidentitas` = '123456789100' WHERE `anggota`.`noanggota` = 'A001';
+						$pertama	="INSERT INTO angsur (`no_angsur`, `no_pnjm`, `no_rek`, `tanggal_angsur`, `angsuran_ke`,`besar_angsuran`, `sisa_angsuran`,`denda`, `petugas`)
+		 							  VALUES ('$no_angsur', '$no_pinjam', '$no_rek', now(),'$angsuran_ke' ,'$besar_angsuran' ,  '$sisa_angsuran', '$denda', '$petugas')";		   
+						// $pertama	="INSERT INTO angsur (`no_angsur`, `no_pnjm`, `no_rek`, `tanggal_angsur`, `angsuran_ke`,`besar_angsuran`, `sisa_angsuran`,`denda`, `petugas`)
+		 							  // VALUES ('$no_angsur', '$no_pinjam', '$no_rek', now(),'$angsuran_ke' ,'$besar_angsuran' ,  '$sisa_angsuran', '$denda', '$petugas')";		   
+						// echo $pertama;
+						// die;
+						$a=mysql_query($pertama) or die("Gagal menyimpan data angsuran");	
+								if($a)
+								
+										echo "<script>window.alert('Angsuran Sebesar ".num($angsuran_bulan_ini)." Telah Berhasil')</script>
+												<meta http-equiv='refresh' content='0; url=../../main.php?view=$view'>";
+								else{
+													echo "<script>window.alert('Terjadi Kesalahan')</script>";
+													echo"<meta http-equiv='refresh' content='0; url=../../main.php?view=$view'>";
+									
+													}

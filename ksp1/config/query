@@ -1,0 +1,6 @@
+SELECT nasabah.nama AS nasabah, COUNT(*) AS [JUMLAH TABUNGAN]
+FROM nasabah INNER JOIN simpanan ON nasabah.no_rekening = simpanan.no_rek
+GROUP BY nasabah.nama
+HAVING COUNT(*) >
+(SELECT COUNT(*) FROM simpanan INNER JOIN nasabah ON simpanan.no_rek
+= nasabah.no_rekening WHERE simpanan.jenis = 'S')
