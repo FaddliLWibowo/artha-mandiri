@@ -1,12 +1,13 @@
 
 <?php
 session_start();
-if (empty($_SESSION['nip']) AND empty($_SESSION['password'])){
-header('location:index.php');	
-}
-else{
-	header('location:../../main.php?view=home');
-	}
+$session = $_SESSION;
+// if (empty($session['nip']) AND empty($session['password'])){
+// header('location:index.php');	
+// }
+// else{
+// 	header('location:main.php?view=home');
+// 	}
 ini_set('display_errors', 1); ini_set('error_reporting', E_ERROR);
 
 $proses="view/pinjam/proses_pinjam.php";

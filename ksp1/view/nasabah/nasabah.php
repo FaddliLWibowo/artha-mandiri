@@ -1,20 +1,20 @@
 
 <?php
 session_start();
-if (empty($_SESSION['nip']) AND empty($_SESSION['password'])){
-header('location:index.php');	
-}
-else{
-	header('location:../../main.php?view=home');
-	}
+// if (empty($_SESSION['nip']) AND empty($_SESSION['password'])){
+// header('location:index.php');	
+// }
+// else{
+// 	header('location:../../main.php?view=home');
+// 	}
 
 ini_set('display_errors', 1); ini_set('error_reporting', E_ERROR);
 $proses="view/nasabah/proses_nasabah.php";
 include "config/database.php";
 include "controller/class_paging.php";
 include "controller/no_rekening.php";
-// include "controller/no_sukarela.php";
-// include "controller/no_pokok.php";
+include "controller/no_sukarela.php";
+include "controller/no_pokok.php";
 
 switch($_GET[act])
 {
@@ -311,8 +311,9 @@ break;
 					<input type=hidden name='add'  		value='$_POST[alamat_nasabah]'>
 					<input type=hidden name='id'  		value='$_POST[no_identitas]'>
 					<input type=hidden name='hp'  		value='$_POST[hp_nasabah]'>
-					
-				
+					<tr><td class='a'>Wajib</td><td class='b'> : <input type='text' name='wajib' id='wajib' maxlength='8 size='20'></td></tr>
+					<tr><td class='a'>Pokok</td><td class='b'> : <input type='text' name='pokok' id='pokok' maxlength='8 size='20'></td></tr>
+					<tr><td class='a'>Sukarela</td><td class='b'> : <input type='text' name='nominal' id='nominal' maxlength='8 size='20'></td></tr>
 					<tr><td class='a'>						</td><td class='b'>	 	  <input type=submit value=Simpan 			name=sub>
           															 				  <input type=button value=Kembali 			onclick=self.history.back()>	</td></tr>
 	</tbody>
